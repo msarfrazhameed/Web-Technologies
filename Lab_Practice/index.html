@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Majestic Fashions</title>
+</head>
+
+<style> 
+
+
+#header{
+     background-color: #f0f0f0;
+     padding: 20px;
+     text-align: center;
+}
+
+#menu{
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 10px;
+
+    
+}
+
+#menu div{
+
+    display: inline-block;
+    padding: 10px 20px;
+    cursor:pointer;
+
+
+}
+
+#menu div a{
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+/* #Hero{
+    background-color: #fcfcfc;
+    background-image: url('./majestic_fashions_banner.png');
+    background-size: contain;
+    background-repeat: no-repeat;  Prevents the image from tiling 
+    background-position: center;
+    text-align: center;
+    padding: 80px 20px;
+    border-bottom: 1px solid #e0e0e0;
+
+} 
+*/
+
+#Hero {
+  background-color: #fcfcfc;
+  background-image: url('majestic_fashions_banner.png');
+  background-size: cover;
+  background-position: center 25%; /* Keeps the models' faces perfectly in view */
+  background-repeat: no-repeat;
+  text-align: center;
+  padding: 60px 20px;
+  min-height: 450px; /* Forces a stable widescreen banner height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#Hero h1, #Hero p {
+  color: #ffffff; /* Changes text to white */
+  text-shadow: 0px 2px 8px rgba(0, 0, 0, 0.7); /* Adds contrast behind the letters */
+}
+
+   #Hero h2{
+    color: #ffffff;
+    text-shadow: 0px 2px 8px rgba(0, 0, 0, 0.7); /* Adds contrast behind the letters */
+
+    font-size: 36px;
+    margin-bottom: 20px;
+    font-family: serif;
+}
+#Hero p{
+    font-size: 18px;
+    margin-bottom: 30px;
+    font-family: sans-serif;
+}
+
+#Hero button{
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+#Hero button:hover{
+    background-color: #333333;
+}
+
+</style>
+
+
+<body>
+    <header id = "header"><h1> Majestic Fashions </h1>  </header>
+
+    <div id = "menu">
+        
+            <div id="home"><a href="#">Home</a></div>
+            <div id="about"><a href="#">About</a></div>
+            <div id="contact"><a href="#">Contact</a></div>
+            <div id="signin"><a href="#">Signin</a></div>
+        
+
+    </div>
+
+
+
+<main>
+    <section id="Hero">
+        <h2>Welcome to Majestic Fashions</h2>
+        <p>Discover the latest Trends in Premium Fashion</p>
+        <button>SHOP</button>
+
+
+    </section>
+
+    <section>
+        <h2>Product Catalogue</h2>
+        <p>Explore our wide range of products</p>
+        <section id=" Women">
+            Women
+        </section>
+    </section>
+
+    <section>
+        
+    </section>
+
+
+
+
+</main>
+
+<footer> &copy; 2026 Majestic Fashions. All rights reserved</footer>
+</body>
+</html>
