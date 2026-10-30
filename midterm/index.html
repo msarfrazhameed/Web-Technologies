@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HelloFresh - Meal Kits & Listing</title>
+    <title>HelloFresh - Fresh Meal Kits</title>
 
 <style>
     :root {
-        /* Personal Numbers for FA24-BCS-139: N = 39, BP = 639px, H = 273, K = 3 */
-        --accent: hsl(273, 70%, 45%);
+        /* Professional Eco-Green Brand Theme (H = 100 green accent) */
+        --brand-green: hsl(100, 65%, 38%);
+        --brand-green-dark: hsl(100, 65%, 28%);
+        --bg-light: #f4f9f4;
+        --text-dark: #2c3e50;
     }
 
     * {
@@ -16,228 +19,303 @@
     }
 
     body {
-        font-family: Arial, sans-serif;
+        font-family: system-ui, -apple-system, sans-serif;
         margin: 0;
         padding: 0;
+        color: var(--text-dark);
+        background-color: #fff;
     }
 
-    /* --- YOUR EXISTING STYLES --- */
+    /* --- PROFESSIONAL NAVBAR --- */
     #head {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
         align-items: center;
-        gap: 20px;
-        padding: 15px;
-        border-bottom: 1px solid #ddd;
+        gap: 25px;
+        padding: 16px 20px;
+        background-color: #ffffff;
+        border-bottom: 2px solid #e2e8f0;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
     }
 
-    #head a {
+    #head a, #head nav {
         text-decoration: none;
-        color: var(--accent);
-        font-weight: bold;
+        color: var(--text-dark);
+        font-weight: 600;
+        font-size: 15px;
     }
 
+    #head a:hover {
+        color: var(--brand-green);
+    }
+
+    /* --- BANNER SECTION WITH GREEN ACCENT --- */
     .banner {
         display: flex;
         flex-direction: column; 
         align-items: center;
         text-align: center;
-        padding: 40px 20px;
+        padding: 50px 20px;
+        background: linear-gradient(135deg, var(--bg-light) 0%, #e8f5e9 100%);
+        border-bottom: 1px solid #c8e6c9;
+        .banner {
+    /* 1. Set the background image and make sure it doesn't repeat */
+        background-image: url('hellofresh.jpg'); /* Change to your actual image filename */
+        background-repeat: no-repeat;
+    
+    /* 2. Cover the entire section */
+        background-size: cover;
+    
+    /* 3. Center the image inside the box */
+        background-position: center;
+    
+    /* Optional: Add a dark or green overlay tint if your text is hard to read over the image */
+    /* background-blend-mode: overlay; */
+    /* background-color: rgba(0, 0, 0, 0.4); */
+}
+    }
+
+    .banner h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+        color: var(--brand-green-dark);
     }
 
     #button-pricing {
-        background-color: #28a745;
+        background-color: var(--brand-green);
         color: white;
-        padding: 10px 20px;
+        padding: 12px 24px;
         border: none;
-        border-radius: 5px;
+        border-radius: 8px;
+        font-weight: bold;
+        font-size: 16px;
         cursor: pointer;
+        transition: background 0.2s;
+    }
+
+    #button-pricing:hover {
+        background-color: var(--brand-green-dark);
     }
 
     .middle-text {
         display: flex;
-        max-width: 600px;
+        max-width: 650px;
         flex-direction: column;
-        margin: 0 auto;
+        margin: 40px auto;
         text-align: center;
-        padding: 0 15px;
+        padding: 0 20px;
     }
 
-    /* --- TASK 1 & TASK 3: PRODUCT LISTING, FILTER, SEARCH & SORT --- */
+    .middle-text h2 {
+        color: var(--brand-green-dark);
+    }
+
+    /* --- SHOP SECTION & CONTROLS --- */
     .shop-section {
-        max-width: 1100px;
-        margin: 30px auto;
+        max-width: 1200px;
+        margin: 40px auto;
         padding: 0 20px;
         text-align: center;
     }
 
-    /* Search and Sort Bar (Task 3) */
+    .shop-section h2 {
+        font-size: 2rem;
+        margin-bottom: 25px;
+    }
+
     .controls-bar {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 12px;
-        margin-bottom: 20px;
+        gap: 15px;
+        margin-bottom: 25px;
     }
 
     #search-input {
-        padding: 10px 14px;
-        width: 260px;
-        border: 2px solid #ccc;
-        border-radius: 6px;
-        font-size: 15px;
+        padding: 12px 16px;
+        width: 300px;
+        border: 2px solid #cbd5e1;
+        border-radius: 8px;
+        font-size: 16px;
+        outline: none;
+    }
+
+    #search-input:focus {
+        border-color: var(--brand-green);
     }
 
     #sort-price-btn {
-        padding: 10px 18px;
-        background-color: var(--accent);
+        padding: 12px 20px;
+        background-color: var(--brand-green);
         color: white;
         border: none;
-        border-radius: 6px;
+        border-radius: 8px;
         font-weight: bold;
         cursor: pointer;
     }
 
-    /* Task 1: Hide actual radio circles visually so labels act as filter buttons */
+    #sort-price-btn:hover {
+        background-color: var(--brand-green-dark);
+    }
+
+    /* --- TASK 1: CSS CATEGORY FILTER --- */
     .filter-radio {
         display: none;
     }
 
     .filter-label {
         display: inline-block;
-        padding: 8px 18px;
-        margin: 5px;
-        border: 2px solid var(--accent);
-        border-radius: 20px;
+        padding: 10px 22px;
+        margin: 6px;
+        border: 2px solid var(--brand-green);
+        border-radius: 30px;
         cursor: pointer;
-        font-weight: bold;
-        color: var(--accent);
+        font-weight: 600;
+        color: var(--brand-green);
         background-color: white;
+        transition: all 0.2s;
     }
 
-    /* Task 1: Selected filter looks selected using Accent Color H = hsl(273, 70%, 45%) */
+    .filter-label:hover {
+        background-color: var(--bg-light);
+    }
+
+    /* Active State for Radio Filter Buttons */
     #cat-all:checked ~ .filter-bar label[for="cat-all"],
     #cat-quick:checked ~ .filter-bar label[for="cat-quick"],
     #cat-veggie:checked ~ .filter-bar label[for="cat-veggie"],
     #cat-family:checked ~ .filter-bar label[for="cat-family"] {
-        background-color: var(--accent);
+        background-color: var(--brand-green);
         color: white;
+        box-shadow: 0 4px 10px rgba(56, 142, 60, 0.3);
     }
 
-    /* Product Grid: Mobile first (1 column below BP = 639px) */
+    /* Product Grid Layout */
     .product-grid {
         display: grid;
         grid-template-columns: 1fr;
-        gap: 20px;
-        margin-top: 20px;
+        gap: 25px;
+        margin-top: 30px;
         text-align: left;
     }
 
-    /* From BP = 639px and wider: 3 columns */
     @media (min-width: 639px) {
         .product-grid {
             grid-template-columns: repeat(3, 1fr);
         }
     }
 
-    /* Task 1: CSS-ONLY CATEGORY FILTER using :checked and ~ sibling selector */
-    #cat-quick:checked ~ .product-grid .product-card:not(.cat-quick) {
-        display: none;
-    }
-    #cat-veggie:checked ~ .product-grid .product-card:not(.cat-veggie) {
-        display: none;
-    }
+    /* Task 1 Filtering Rule: Hides non-matching cards without layout gaps */
+    #cat-quick:checked ~ .product-grid .product-card:not(.cat-quick),
+    #cat-veggie:checked ~ .product-grid .product-card:not(.cat-veggie),
     #cat-family:checked ~ .product-grid .product-card:not(.cat-family) {
         display: none;
     }
 
-    /* Task 3 helper class: hides cards that don't match search text */
     .product-card.search-hidden {
         display: none !important;
     }
 
-    /* Product Card Styling */
+    /* Professional Card Styling */
     .product-card {
-        border: 1px solid #ddd;
-        border-radius: 12px;
-        padding: 15px;
+        border: 1px solid #e2e8f0;
+        border-radius: 14px;
+        padding: 18px;
         background: #fff;
         position: relative;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .product-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
     }
 
     .product-card img {
         width: 100%;
-        height: 180px;
+        height: 190px;
         object-fit: cover;
-        border-radius: 8px;
+        border-radius: 10px;
     }
 
     .product-title {
-        margin: 12px 0 6px 0;
+        margin: 14px 0 6px 0;
         font-size: 18px;
+        font-weight: 700;
     }
 
     .cat-tag {
         display: inline-block;
         font-size: 12px;
-        background: #eee;
-        padding: 3px 8px;
-        border-radius: 4px;
-        margin-bottom: 8px;
+        background: var(--bg-light);
+        color: var(--brand-green-dark);
+        padding: 4px 10px;
+        border-radius: 6px;
+        font-weight: 600;
+        margin-bottom: 6px;
     }
 
     .product-price {
-        font-size: 18px;
-        font-weight: bold;
-        color: #28a745;
-        margin: 8px 0;
+        font-size: 19px;
+        font-weight: 800;
+        color: var(--brand-green-dark);
+        margin: 10px 0;
     }
 
     .view-btn {
-        display: inline-block;
+        display: block;
         text-align: center;
-        background-color: var(--accent);
+        background-color: var(--brand-green);
         color: white;
         text-decoration: none;
-        padding: 8px 12px;
-        border-radius: 6px;
-        margin-top: 8px;
+        padding: 10px;
+        border-radius: 8px;
+        font-weight: 600;
+        margin-top: 10px;
     }
 
-    /* Task 3: Premium Label for products > N * 100 (3900) */
+    .view-btn:hover {
+        background-color: var(--brand-green-dark);
+    }
+
+    /* Premium Badge */
     .premium-badge {
         position: absolute;
-        top: 25px;
-        right: 25px;
-        background-color: var(--accent);
+        top: 28px;
+        right: 28px;
+        background-color: #d97706;
         color: white;
-        padding: 5px 10px;
+        padding: 5px 12px;
         border-radius: 6px;
         font-size: 12px;
         font-weight: bold;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
     }
 
     #no-products-msg {
         display: none;
         font-size: 18px;
         font-weight: bold;
-        color: #d90429;
-        padding: 30px;
+        color: #dc2626;
+        padding: 40px;
     }
 
-    /* --- YOUR EXISTING FEATURE ROWS (Responsive at BP = 639px) --- */
+    /* --- FEATURE SECTIONS --- */
     .picture-text-1, .picture-text-2, .picture-text-3 {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         max-width: 1100px;
-        margin: 20px auto;
-        gap: 20px;
+        margin: 40px auto;
+        gap: 30px;
         padding: 0 20px;
     }
 
@@ -248,17 +326,84 @@
     #picture-1 img, #picture-2 img, #picture-3 img {
         width: 100%;
         height: auto;
-        border-radius: 20px;
+        border-radius: 16px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.08);
         display: block;
     }
 
+    /* --- PROFESSIONAL FOOTER WITH CSS GRID & ICONS --- */
     .footer {
+        background-color: #1e293b;
+        color: #cbd5e1;
+        padding: 60px 20px 30px 20px;
+        margin-top: 60px;
+    }
+
+    .footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-        padding: 30px;
-        border-top: 1px solid #ddd;
-        margin-top: 40px;
+        gap: 30px;
+    }
+
+    .footer-col h3 {
+        color: #ffffff;
+        font-size: 16px;
+        margin-bottom: 15px;
+        font-weight: 700;
+        border-bottom: 2px solid var(--brand-green);
+        display: inline-block;
+        padding-bottom: 4px;
+    }
+
+    .footer-col ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .footer-col ul li {
+        margin-bottom: 10px;
+    }
+
+    .footer-col ul li a {
+        color: #94a3b8;
+        text-decoration: none;
+        transition: color 0.2s;
+        font-size: 14px;
+    }
+
+    .footer-col ul li a:hover {
+        color: #ffffff;
+    }
+
+    .footer-bottom {
+        max-width: 1200px;
+        margin: 40px auto 0 auto;
+        padding-top: 20px;
+        border-top: 1px solid #334155;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        color: #64748b;
+        font-size: 13px;
+    }
+
+    .social-icons {
+        display: flex;
+        gap: 15px;
+    }
+
+    .social-icons a {
+        color: #94a3b8;
+        text-decoration: none;
+        font-size: 16px;
+    }
+
+    .social-icons a:hover {
+        color: var(--brand-green);
     }
 
     @media (min-width: 639px) {
@@ -270,7 +415,8 @@
         }
         .picture-text-2 #picture-2 { order: 2; }
         .picture-text-2 #text-2 { order: 1; }
-        .footer {
+
+        .footer-container {
             grid-template-columns: repeat(6, 1fr);
         }
     }
@@ -279,36 +425,36 @@
 
 <body>
     <header id="head">
-        <nav><strong>HelloFresh</strong></nav>
-        <nav>Our plans</nav>
+        <nav><strong>🌱 HelloFresh</strong></nav>
+        <nav>Our Plans</nav>
         <nav>About Us</nav>
         <nav>Our Menus</nav>
         <nav><a href="product.html">Featured Product Page</a></nav>
         <nav>Gift Cards</nav>
         <nav>Sustainability</nav>
-        <nav><button>Login</button></nav>
+        <nav><button style="background:var(--brand-green); color:#fff; border:none; padding:8px 16px; border-radius:6px; font-weight:bold; cursor:pointer;">Login</button></nav>
     </header>
 
     <main>
         <section class="banner">
             <h1>Take Back Dinnertime!</h1>
-            <p>Cook up 100+ mouthwatering meals in 30 minutes or less</p>
+            <p style="font-size: 1.1rem; color: #4b5563;">Cook up 100+ mouthwatering meals in 30 minutes or less</p>
             <button id="button-pricing">See Pricing and Plans</button>
-            <p>Pause or Cancel Anytime</p>
-
-            <div style="margin-top: 15px;">
-                <label for="people-select">Choose people count: </label>
-                <select id="people-select">
+            <p style="font-size: 0.9rem; color: #6b7280; margin-top: 5px;">Pause or Cancel Anytime</p>
+            <img src="hellofresh.jpg" alt="HelloFresh Banner" style="width: 100%; max-width: 800px; margin-top: 20px; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.1);">
+            <div style="margin-top: 20px; background: #fff; padding: 15px 25px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+                <label for="people-select" style="font-weight: 600;">Choose people count: </label>
+                <select id="people-select" style="padding: 6px; border-radius: 6px; border: 1px solid #ccc;">
                     <option value="2">2 People</option>
                     <option value="4">4 People</option>
                 </select>
-                <p id="calculated-price" style="font-weight: bold; margin-top: 5px; padding:10px; background-color: #f0f0f0; border: 1px solid #ccc;">Estimated Cost: $40/week</p>
+                <p id="calculated-price" style="font-weight: bold; margin-top: 8px; padding: 8px; background-color: var(--bg-light); border: 1px solid #c8e6c9; border-radius: 6px; color: var(--brand-green-dark);">Estimated Cost: $40/week</p>
             </div>
         </section>
 
         <section class="middle-text">
             <h2>Whatever your week looks like, dinner’s covered.</h2>
-            <p>From quick-prep meal kits to ready-made meals, HelloFresh gives you more time, less stress, and better eating—night after night.</p>
+            <p style="color: #4b5563; line-height: 1.6;">From quick-prep meal kits to ready-made meals, HelloFresh gives you more time, less stress, and better eating—night after night.</p>
         </section>
 
         <!-- TASK 1 & TASK 3: PRODUCT LISTING SECTION -->
@@ -321,13 +467,13 @@
                 <button type="button" id="sort-price-btn">Sort by price</button>
             </div>
 
-            <!-- Task 1: K + 1 = 4 Radio Inputs (Must be direct siblings above .product-grid for ~ selector) -->
+            <!-- Task 1: 4 Radio Inputs -->
             <input type="radio" name="category" id="cat-all" class="filter-radio" checked>
             <input type="radio" name="category" id="cat-quick" class="filter-radio">
             <input type="radio" name="category" id="cat-veggie" class="filter-radio">
             <input type="radio" name="category" id="cat-family" class="filter-radio">
 
-            <!-- Visual Filter Buttons (Labels linked via for/id) -->
+            <!-- Visual Filter Buttons -->
             <div class="filter-bar">
                 <label for="cat-all" class="filter-label">All</label>
                 <label for="cat-quick" class="filter-label">Quick Prep</label>
@@ -335,11 +481,9 @@
                 <label for="cat-family" class="filter-label">Family</label>
             </div>
 
-            <!-- Task 3: Shown when 0 cards match -->
             <p id="no-products-msg">No products found</p>
 
-            <!-- Product Grid with 6 Existing Cards across K = 3 Categories -->
-            <!-- Note: N * 100 = 39 * 100 = 3900. Cards > 3900 get "Premium" label via JS -->
+            <!-- Product Grid -->
             <div class="product-grid" id="product-grid">
 
                 <article class="product-card cat-quick">
@@ -405,14 +549,14 @@
             </div>
         </section>
 
-        <!-- YOUR EXISTING 3 PICTURE-TEXT SECTIONS -->
+        <!-- FEATURE SECTIONS -->
         <section class="picture-text-1">
             <div id="picture-1">
                 <img src="image_1.jpg" alt="image_1">
             </div>
             <div id="text-1">
                 <h2>91% of our customers feel healthier with a HelloFresh subscription</h2>
-                <p>Enjoy delicious, home-cooked meals without sacrificing quality, variety, or your health goals.</p>
+                <p style="color: #4b5563;">Enjoy delicious, home-cooked meals without sacrificing quality, variety, or your health goals.</p>
             </div>
         </section>
 
@@ -421,8 +565,8 @@
                 <img src="image_2.jpg" alt="image_2">
             </div>
             <div id="text-2">
-                <h3>93% of our customers feel less stressed at dinner time</h3>
-                <p>With foolproof recipes, flexible portions, and crowd-pleasing options delivered weekly, dinner feels easier from start to finish.</p>
+                <h2 style="color:var(--brand-green-dark);">93% of our customers feel less stressed at dinner time</h2>
+                <p style="color: #4b5563;">With foolproof recipes, flexible portions, and crowd-pleasing options delivered weekly, dinner feels easier from start to finish.</p>
             </div> 
         </section>
 
@@ -431,21 +575,76 @@
                 <img src="image_3.jpg" alt="image_3">
             </div>
             <div id="text-3">
-                <h3>98% of our customers save time on meals</h3>
-                <p>HelloFresh meal delivery lets you skip the planning and grocery trips, and enjoy quick-prep, flavor-packed recipes ready in just 20 minutes.</p>
+                <h2 style="color:var(--brand-green-dark);">98% of our customers save time on meals</h2>
+                <p style="color: #4b5563;">HelloFresh meal delivery lets you skip the planning and grocery trips, and enjoy quick-prep, flavor-packed recipes ready in just 20 minutes.</p>
             </div>
         </section>
     </main>
 
-    <footer>
-        <section class="footer">
-            <h3>Hello Fresh</h3>
-            <h3>Our Company</h3>
-            <h3>Work With Us</h3>
-            <h3>Help Center</h3>
-            <h3>Payment Methods</h3>
-            <h3>Download Your App</h3>
-        </section>
+    <!-- PROFESSIONAL MULTI-COLUMN FOOTER WITH LINKS & ICONS -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-col">
+                <h3>🌱 HelloFresh</h3>
+                <ul>
+                    <li><a href="#">How it Works</a></li>
+                    <li><a href="#">Plans & Pricing</a></li>
+                    <li><a href="#">Recipe Directory</a></li>
+                    <li><a href="#">Customer Reviews</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Our Company</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Press & Media</a></li>
+                    <li><a href="#">Sustainability</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Work With Us</h3>
+                <ul>
+                    <li><a href="#">Partner Programs</a></li>
+                    <li><a href="#">Affiliates</a></li>
+                    <li><a href="#">Supply Chain</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Help Center</h3>
+                <ul>
+                    <li><a href="#">FAQ & Support</a></li>
+                    <li><a href="#">Delivery Info</a></li>
+                    <li><a href="#">Dietary Preferences</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Payment Methods</h3>
+                <ul>
+                    <li><a href="#">💳 Credit / Debit Card</a></li>
+                    <li><a href="#">🏦 Bank Transfer</a></li>
+                    <li><a href="#">💵 Cash on Delivery</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Get the App</h3>
+                <ul>
+                    <li><a href="#">🍏 App Store</a></li>
+                    <li><a href="#">🤖 Google Play</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 HelloFresh Clone · BSCS Lab Midterm (Sarfraz Hameed - FA24-BCS-139)</p>
+            <div class="social-icons">
+                <a href="#" title="Facebook">🌐 FB</a>
+                <a href="#" title="Instagram">📸 IG</a>
+                <a href="#" title="Twitter">🐦 TW</a>
+                <a href="#" title="LinkedIn">💼 LI</a>
+            </div>
+        </div>
     </footer>
 
     <script src="script.js"></script>
