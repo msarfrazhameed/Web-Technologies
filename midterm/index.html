@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<style>
+    #head{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    spacing: 20px;
+    
+    }
+
+    .banner {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    text-align: center;
+    padding: 50px;
+    }
+
+    #button-pricing {
+    background-color: #28a745;
+    align-self:start;
+    color: white;
+    padding: 10px 20px;
+    margin-left: 20px;
+    }
+
+    .middle-text{
+        display: flex;
+        max-width: 500px;
+        flex-direction: column;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .picture-text-1{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 1100px;
+        margin: 0 auto;
+        gap:20px;
+
+    }
+
+    #picture-1 img {
+        padding: 30px;
+        width:100%;
+        height: auto;
+        border-radius:30px;
+        display:block;
+    }
+
+     #text-1{
+        padding: 20px;
+        width: 50%;
+        
+    }
+
+    .picture-text-2{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        gap:20px;
+    }
+
+    .picture-text-2 #picture-2 {
+        padding: 30px;
+        width:10%;
+        height: auto;
+        order:2;
+        border-radius:30px;
+    }
+
+    .picture-text-2 #text-2{
+        padding: 20px;
+        order:1;
+    }
+
+
+
+    .picture-text-3{
+        display : flex;
+        justify-content: center;
+        align-items: center;
+        gap:20px;
+    }
+
+    .picture-text-3 #picture-3{
+        padding: 30px;
+        width:10%;
+        height: auto;
+        border-radius: 30px;
+    }
+
+    .footer{
+        display: grid;
+        grid-template-columns: repeat(6,1fr);
+        gap: 20px;
+        padding:30px;
+    }
+
+
+
+    
+
+
+
+
+
+</style>
+
+
+</head>
+
+<body>
+    <header id = "head">
+        <nav>Logo</nav>
+        <nav>Our plans</nav>
+        <nav>About Us</nav>
+        <nav>Our Menus</nav>
+        <nav>Our Meal Kits</nav>
+        <nav>Gift Cards</nav>
+        <nav>Sustainability</nav>
+        <nav>Partnerships</nav>
+        <nav><button>Login</button></nav>
+        
+    </header>
+
+
+    <main>
+        <section class = "banner">
+            <h1>Take Back Dinnertime!</h1>
+            <p>Cook up 100+ mouthwatering meals in 30 minutes or less</p>
+            <button id="button-pricing">See Pricing and Plans</button>
+            <p>Pause or Cancel Anytime</p>
+
+        <div style="margin-top: 15px;">
+               <label for="people-select">Choose people count: </label>
+            <select id="people-select">
+              <option value="2">2 People</option>
+              <option value="4">4 People</option>
+            </select>
+            <p id="calculated-price" style="font-weight: bold; margin-top: 5px; padding:10px; background-color: #f0f0f0; border: 1px solid #ccc;">Estimated Cost: $40/week</p>
+        </div>
+
+
+
+
+        </section>
+        <br>
+        <br>
+
+        <section class=" middle-text">
+            <h2>Whatever your week looks like,dinner’s covered.</h2>
+            <p>From quick-prep meal kits to ready-made meals, HelloFresh gives you more time, less stress, and better eating—night after night.</p>
+        </section>
+
+        <section class ="picture-text-1">
+
+            <div id = "picture-1">
+                <img src = "image_1.jpg" alt = "image_1">
+            </div>
+
+            <div id="text-1">
+                <h2>91% of our customers feel healthier with <br> a HelloFresh subscription</h2>
+                <p>Enjoy delicious, home-cooked meals without sacrificing quality, variety, or your <br> health goals.</p>
+            </div>
+
+        </section>
+
+        <br>
+        <br>
+
+        <section class = "picture-text-2">
+            <div id = "picture-2">
+                <img src = "image_2.jpg" alt ="image_2">
+            </div>
+
+           <div id = "text-2">
+            <h3>93% of our customers feel less stressed <br> at dinner time</h3>
+            <p>With foolproof recipes, flexible portions, and crowd-pleasing options delivered <br>weekly, dinner feels easier from start to finish.</p>
+            
+           </div> 
+        </section>
+
+
+        <br>
+        <br>
+
+
+        <section class ="picture-text-3">
+
+            <div id = "picture-3">
+              <img src = "image_3.jpg" alt = "image_3">
+
+            </div>
+
+            <div id = "text-3">
+            <h3>98% of our customers save time on <br> meals</h3>
+            <p>HelloFresh meal delivery lets you skip the planning and grocery trips, and <br> enjoy quick-prep, flavor-packed recipes ready in just 20 minutes. </p>
+            </div>
+
+
+
+        </section>
+    </main>
+
+
+
+<footer>
+    <section class="footer">
+        
+            <h3>Hello Fresh</h3>
+            <h3>Our Company</h3>
+            <h3>Work With Us</h3>
+            <h3>Help Center</h3>
+            <h3>Payment Methods</h3>
+            <h3>Download Your App</h3>
+        
+    </section>
+
+</footer>
+
+
+
+
+<script src="scrip.js"></script>
+</body>
+</html>
